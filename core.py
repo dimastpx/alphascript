@@ -9,8 +9,11 @@ class Alphascript:
                 if len(args) == 1:
                     return "Ошибка! вы не указали переменные"
                 for i in args[1:]:
-                    self.variables[i] = "None"
+                    self.variables[i] = None
                 return "Переменные сохранены успешно"
 
             case "сделать":
-
+                match args[2]:
+                    case "строкой":
+                        self.variables[args[1]] = args[3]
+                        return f"Переменная {args[1]} сделана строкой \"{args[3]}\""
